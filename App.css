@@ -1,0 +1,107 @@
+:root {
+  --hijau: #14532d;
+  --hijau-muda: #e3efe6;
+  --kertas: #f8f9f5;
+  --teks: #1c2420;
+  --aksen: #d98b1f;
+  --garis: #cfd8d1;
+  --salah: #b3261e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--kertas);
+  color: var(--teks);
+  line-height: 1.6;
+}
+
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.25; }
+h1 { font-size: 2rem; margin: 0 0 1rem; }
+h2 { font-size: 1.35rem; margin-top: 2rem; }
+
+a { color: var(--hijau); }
+:focus-visible { outline: 3px solid var(--aksen); outline-offset: 2px; }
+
+.container { max-width: 960px; margin: 0 auto; padding: 2rem 1rem; min-height: 70vh; }
+
+/*Navbar*/
+.navbar {
+  background: var(--hijau);
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.brand { color: #fff; font-family: Georgia, serif; font-size: 1.2rem; font-weight: bold; text-decoration: none; }
+.menu { display: flex; gap: 1.25rem; }
+.menu a { color: #dfeee3; text-decoration: none; padding: 0.25rem 0; border-bottom: 2px solid transparent; }
+.menu a.aktif, .menu a:hover { color: #fff; border-bottom-color: var(--aksen); }
+.burger { display: none; background: none; border: 1px solid #fff; color: #fff; padding: 0.35rem 0.8rem; border-radius: 4px; cursor: pointer; }
+
+/*Hero*/
+.hero { background: var(--hijau-muda); padding: 2.5rem 1.5rem; border-left: 6px solid var(--aksen); margin-bottom: 2rem; }
+.hero h1 { font-size: 2.2rem; max-width: 22ch;}
+.hero p { max-width: 55ch; }
+
+/*Grid & card*/
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+.card { background: #fff; border: 1px solid var(--garis); border-radius: 6px; padding: 1.1rem; display: flex; flex-direction: column; }
+.card h3 { margin: 0 0 0.5rem; font-size: 1.1rem; }
+.card-body { flex: 1; color: #46524b; }
+.card-aksi { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+
+/*Tombol*/
+.btn { background: var(--hijau); color: #fff; border: none; padding: 0.65rem 1.2rem; border-radius: 4px; font-size: 1rem; cursor: pointer; text-decoration: none; display: inline-block; }
+.btn:hover { background: #0e3d21; }
+.btn-kecil { background: #fff; border: 1px solid var(--hijau); color: var(--hijau); padding: 0.3rem 0.7rem; border-radius: 4px; cursor: pointer; }
+.btn-kecil:hover { background: var(--hijau-muda); }
+
+/*Filter*/
+.filter { display: flex; gap: 0.75rem; margin-bottom: 1.25rem; }
+.filter input { flex: 1; }
+input, select, textarea { font: inherit; padding: 0.6rem; border: 1px solid #9aa89f; border-radius: 4px; background: #fff; width: 100%; }
+.filter select { width: auto; }
+
+/*Accordion*/
+.acc-item { border: 1px solid var(--garis); background: #fff; margin-bottom: 0.5rem; border-radius: 4px; }
+.acc-item button { width: 100%; text-align: left; background: none; border: none; padding: 0.9rem 1rem; font: inherit; font-weight: 600; cursor: pointer; }
+.acc-item p { margin: 0; padding: 0 1rem 1rem; }
+
+/*Detail*/
+.detail { display: grid; grid-template-columns: 8rem 1fr; gap: 0.35rem 1rem; background: #fff; border: 1px solid var(--garis); padding: 1rem; border-radius: 6px; }
+.detail dt { font-weight: 600; }
+.detail dd { margin: 0; }
+
+/*Form*/
+.form { max-width: 520px; display: grid; gap: 1rem; margin: 1.25rem 0; }
+.field { display: grid; gap: 0.3rem; font-weight: 600; }
+.error { color: var(--salah); font-weight: 400; }
+.sukses { color: var(--hijau); font-weight: 600; }
+.pesan { list-style: none; padding: 0; }
+.pesan li { background: #fff; border: 1px solid var(--garis); padding: 0.75rem 1rem; margin-bottom: 0.5rem; border-radius: 4px; }
+.pesan p { margin: 0.25rem 0 0; }
+.link { font-weight: 600; }
+
+/*Footer*/
+.footer { background: var(--hijau); color: #dfeee3; text-align: center; padding: 1.25rem 1rem; }
+.footer p { margin: 0; font-size: 0.9rem; }
+
+/*Ponsel*/
+@media (max-width: 640px) {
+  .burger { display: block; }
+  .menu { display: none; flex-direction: column; width: 100%; gap: 0.5rem; padding-top: 0.75rem; }
+  .menu.show { display: flex; }
+  h1 { font-size: 1.6rem; }
+  .hero h1 { font-size: 1.7rem; }
+  .filter { flex-direction: column; }
+  .filter select { width: 100%; }
+  .detail { grid-template-columns: 1fr; }
+}
